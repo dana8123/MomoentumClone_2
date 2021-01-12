@@ -5,13 +5,20 @@ const form = document.querySelector(".js__form"),
 const USER_LS = "currentUser",
 showing_CN = "showing";
 
-function handleSubmit(){
-    submit.preventDefault
+function saveName(text){
+    localStorage.setItem(USER_LS, text);
 }
 
-fucntion askForName(){
+function handleSubmit(event){
+    event.preventDefault();
+    const currentValue = nameInput.value;
+    paintName(currentValue);
+    saveName(currentValue);
+}
+
+function askForName(){
     form.classList.add(showing_CN);
-    nameInput.addEventListener("submit",handleSubmit);
+    form.addEventListener("submit",handleSubmit);
 }
 
 function paintName(text){
